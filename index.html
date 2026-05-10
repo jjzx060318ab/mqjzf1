@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>母亲节祝福</title>
+	 <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            background: linear-gradient(-45deg, #ffdde1, #ee9ca7, #ffd6e8, #fadadd);
+            background-size: 400% 400%;
+            animation: bgMove 12s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "微软雅黑", sans-serif;
+            overflow: hidden;
+        }
+        @keyframes bgMove {
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        /* 标题 */
+        .title {
+            font-size: 50px;
+            background: linear-gradient(90deg, #ff4d79, #ff99bb);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(255,77,121,0.6);
+            margin-bottom: 60px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 信封按钮 */
+        .envelope-btn {
+            width: 160px;
+            height: 120px;
+            background: #fff;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .envelope-btn:hover {
+            transform: scale(1.1);
+        }
+        .envelope-btn:before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            border-left: 80px solid transparent;
+            border-right: 80px solid transparent;
+            border-bottom: 40px solid #ff8fa3;
+            border-radius: 10px 10px 0 0;
+        }
+        .envelope-btn:after {
+            content: '💌';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 35px;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        /* 提示文字 */
+        .tip {
+            margin-top: 50px;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 0 5px #ff4d79;
+        }
+    </style>
+</head>
+
+<body>
+	    <div class="title">母亲节快乐</div>
+
+    <!-- 信封点击按钮 -->
+    <div class="envelope-btn" id="openBtn"></div>
+
+    <div class="tip">点击信封，开启爱的祝福 💖</div>
+
+    <script>
+        // 点击信封 → 跳转到祝福页
+        document.getElementById('openBtn').onclick = function(){
+            window.location.href = "untitled.html";
+        }
+    </script>
+</body>
+</html>

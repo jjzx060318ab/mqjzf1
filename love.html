@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>母亲节祝福</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #ffdde1, #ee9ca7, #ffd6e8, #fadadd);
+            background-size: 400% 400%;
+            animation: bgMove 12s ease infinite;
+            font-family: "微软雅黑", sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        @keyframes bgMove {
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        /* 爱心飘落 */
+        .heart {
+            position: absolute;
+            color: #ff4d79;
+            font-size: 20px;
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes fall {
+            0% {transform: translateY(-10vh) rotate(0deg);opacity: 0;}
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {transform: translateY(110vh) rotate(360deg);opacity: 0;}
+        }
+
+        /* 花瓣飘落 */
+        .petal {
+            position: absolute;
+            color: #ffb6c1;
+            font-size: 16px;
+            animation: petalFall linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes petalFall {
+            0% {transform: translateY(-5vh) rotate(0deg);}
+            100% {transform: translateY(105vh) rotate(720deg);}
+        }
+
+        /* 星光点点 */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%,100% {opacity:0.2;}
+            50% {opacity:1;}
+        }
+
+        /* 标题艺术字 */
+        .title {
+            font-size: 48px;
+            background: linear-gradient(90deg, #ff4d79, #ff99bb);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(255,77,121,0.6);
+            margin-bottom: 40px;
+            animation: float 3s ease-in-out infinite;
+            text-align: center;
+            line-height: 1.2;
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 磨砂卡片 */
+        .envelope {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(12px);
+            width: 90%;
+            max-width: 520px;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            position: relative;
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from {transform: translateY(50px);opacity: 0;}
+            to {transform: translateY(0);opacity: 1;}
+        }
+
+        .message {
+            font-size: 18px;
+            line-height: 2.2;
+            color: #444;
+            text-align: center;
+        }
+
+        .message .name {
+            background: linear-gradient(90deg,#ff4d79,#ff88aa);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .flower {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+            opacity: 0.25;
+        }
+
+        /* 音乐图标 旋转唱片 */
+        .music-icon {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ff4d79;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            box-shadow: 0 0 15px #ff4d79;
+            cursor: pointer;
+            z-index: 999;
+        }
+        /* 播放时旋转 */
+        .rotate {
+            animation: round 8s linear infinite;
+        }
+        @keyframes round {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+	   .tip {
+            margin-top: clamp(30px, 8vw, 50px);
+            font-size: clamp(16px, 4vw, 20px);
+            color: #fff;
+            text-shadow: 0 0 5px #ff4d79;
+            padding: 0 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+	<div class="music-icon" id="musicBtn">♪</div>
+<audio id="bgMusic" loop preload="metadata">
+    <source src="BEYOND - 真的爱你.mp3" type="audio/mpeg">
+	</audio>
+<script>
+// 生成星星
+for(let i=0;i<60;i++){
+    let s=document.createElement('div');
+    s.className='star';
+    s.style.left=Math.random()*100+'vw';
+    s.style.top=Math.random()*100+'vh';
+    s.style.animationDelay=Math.random()*2+'s';
+    document.body.appendChild(s);
+}
+// 爱心
+for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 10 + 10) + "s";
+    heart.style.animationDelay = Math.random() * 10 + "s";
+    document.body.appendChild(heart);
+}
+// 花瓣
+for(let i=0;i<20;i++){
+    let p=document.createElement("div");
+    p.className="petal";
+    p.innerHTML="❀";
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDuration=(Math.random()*15+12)+"s";
+    document.body.appendChild(p);
+}
+
+// 音乐控制修复
+const musicBtn = document.getElementById('musicBtn');
+const bgMusic = document.getElementById('bgMusic');
+let isPlay = false;
+
+// 点击图标才播放（解决浏览器禁止自动播放）
+musicBtn.addEventListener('click', function(){
+    if(!isPlay){
+        bgMusic.play();
+        musicBtn.classList.add('rotate');
+        isPlay = true;
+    }else{
+        bgMusic.pause();
+        musicBtn.classList.remove('rotate');
+        isPlay = false;
+    }
+})
+</script>
+
+<div class="title">
+    母亲节快乐<br>
+    <span style="font-size: 24px;">LOVE YOU MOM</span>
+</div>
+
+<div class="envelope">
+    <div class="message">
+        <div class="name">To 我最最亲爱的妈咪</div>
+        你先是你自己，然后才是我的妈妈<br>
+        我用一辈子和你说再见，你却用一生祈祷我平安<br>
+        宇宙洪荒，生命浩瀚，但只有你和我，共享过心跳<br>
+        你是坚韧的大树，也是温柔的阳光<br>
+        长安宁，岁无忧，祝妈妈母亲节快乐！
+    </div>
+</div>
+
+<div class="flower">🌸🌷💐</div>
+
+</body>
+</html>
